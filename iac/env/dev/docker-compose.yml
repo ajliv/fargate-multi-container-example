@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  app:
+    image: quay.io/turner/turner-defaultbackend:0.2.0
+    environment:
+      PORT: 3000
+      HEALTHCHECK: /health
+      ENABLE_LOGGING: "false"
+      PRODUCT: fargate-deploy-test
+      ENVIRONMENT: dev
+      SECRET: /var/secret/fargate-deploy-test-dev
+  secrets:
+    image: quay.io/turner/secretsmanager-sidecar
+    environment:
+      SECRET_ID: arn:aws:secretsmanager:us-east-1:000000000000:secret:fargate-deploy-test-dev-PRi4YC
+      SECRET_FILE: /var/secret/fargate-deploy-test-dev
+  redis:
+    image: redis:5
+    labels:
+      aws.ecs.fargate.ignore: 1

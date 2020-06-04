@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "markdown.extension.toc.levels": "2..2",
+  "[terraform]": {
+    "editor.defaultFormatter": "mauve.terraform"
+  }
+}

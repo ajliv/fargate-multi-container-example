@@ -1,0 +1,2 @@
+cluster: fargate-deploy-test-dev
+service: fargate-deploy-test-dev
